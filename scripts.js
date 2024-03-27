@@ -1,53 +1,66 @@
-asyncThing1()
-	.then(() => {
-		// do something with value
-		console.log(add(2, 6));
-		return add(2, 6);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(multiply(nextValue, 2));
-		return multiply(nextValue, 2);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(divide(nextValue, 4));
-		return divide(nextValue, 4);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(subtract(nextValue, 3));
-		return subtract(nextValue, 3);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(add(nextValue, 98));
-		return add(nextValue, 98);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(remainder(nextValue, 2));
-		return remainder(nextValue, 2);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(multiply(nextValue, 50));
-		return multiply(nextValue, 50);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(remainder(nextValue, 40));
-		return remainder(nextValue, 40);
-	})
-	.then((nextValue) => {
-		// do something with nextValue
-		console.log(add(nextValue, 32));
-		return add(nextValue, 32);
-	})
-	.then((nextValue) => {
-		console.log("The final result is", nextValue);
-	})
-	.catch((err) => {
-		// something in either asyncThing1, asyncThing2, or asyncThing3 failed
+// slowMath
+// 	.add(6, 2)
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.multiply(num, 2);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.divide(num, 4);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.subtract(num, 3);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.add(num, 98);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.remainder(num, 2);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.multiply(num, 50);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.remainder(num, 40);
+// 	})
+// 	.then((num) => {
+// 		console.log(num);
+// 		return slowMath.add(num, 32);
+// 	})
+// 	.then((num) => {
+// 		console.log("The final result is", num);
+// 	})
+// 	.catch((err) => {
+// 		console.log(err);
+// 	});
+
+async function doMath() {
+	try {
+		let num = await slowMath.add(6, 2);
+		console.log(num);
+		num = await slowMath.multiply(num, 2);
+		console.log(num);
+		num = await slowMath.divide(num, 4);
+		console.log(num);
+		num = await slowMath.subtract(num, 3);
+		console.log(num);
+		num = await slowMath.add(num, 98);
+		console.log(num);
+		num = await slowMath.remainder(num, 2);
+		console.log(num);
+		num = await slowMath.multiply(num, 50);
+		console.log(num);
+		num = await slowMath.remainder(num, 40);
+		console.log(num);
+		num = await slowMath.add(num, 32);
+		console.log(`Final`, num);
+	} catch (err) {
 		console.log(err);
-	});
+	}
+}
+doMath();
